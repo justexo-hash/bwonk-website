@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bwonk Coin - Chart</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- We don't need Locomotive Scroll CSS on this static page -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Note: Locomotive Scroll container is NOT used here for simplicity -->
+    <header>
+        <h1>Bwonk Coin</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#meme-generator">Meme Generator</a></li>
+                <li><a href="chart.html">Chart</a></li> <!-- Link to this page -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="chart-section">
+            <h2>Bwonk Chart</h2>
+            <div class="chart-container">
+                <!-- Embed Dex Screener Code Below -->
+                <style>#dexscreener-embed{position:relative;width:100%;padding-bottom:125%;}@media(min-width:1400px){#dexscreener-embed{padding-bottom:65%;}}#dexscreener-embed iframe{position:absolute;width:100%;height:100%;top:0;left:0;border:0;}</style><div id="dexscreener-embed"><iframe src="https://dexscreener.com/solana/FVwRu2Sz5hSppZP3yucgwQXwCvk5iSqRHcpRGNgapUU5?embed=1&loadChartSettings=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe></div>
+                <!-- End Dex Screener Code -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bwonk Coin. All rights reserved.</p>
+    </footer>
+
+    <!-- We don't need Locomotive Scroll JS or our script.js on this static page -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script> -->
+    <!-- <script src="js/script.js"></script> -->
+</body>
+</html> 

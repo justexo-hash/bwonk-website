@@ -1,0 +1,361 @@
+/* Base styles */
+:root {
+    --sky-blue: #a4dcf7; /* Lighter, more vibrant blue */
+    --bwonk-orange: #f39c12; /* Closer orange from image */
+    --accent-red: #e74c3c; /* Vibrant red */
+    --dark-blue-rock: #34495e;
+    --light-green-rock: #bdc3c7; /* Using a greyish tone for contrast */
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --border-thick: 4px;
+    --border-color: #2c3e50; /* Dark border */
+}
+
+html {
+    scroll-behavior: smooth; /* Keep this for fallback/non-JS */
+}
+
+/* Prevent body from interfering with Locomotive Scroll */
+html, body {
+    /* height: 100%; */ /* Removed */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; /* Let Locomotive Scroll handle overflow */
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    /* background-color: var(--sky-blue); /* Moved to [data-scroll-container] */
+    color: var(--text-dark);
+    position: relative;
+    /* overflow-x: hidden; /* Let Locomotive Scroll handle overflow */
+    /* scroll-behavior: smooth; /* Handled by JS or Locomotive */
+}
+
+/* Style the main scroll container */
+[data-scroll-container] {
+    background-color: var(--sky-blue);
+    /* Ensure it takes up space if body/html are restricted */
+    /* height: 100%; */ /* Removed */
+    width: 100%;
+}
+
+/* Add standard Locomotive Scroll styles */
+.locomotive-scroll-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.c-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+}
+
+.c-scrollbar_thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--bwonk-orange); /* Use our theme color */
+    opacity: 0.8;
+    width: 7px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+/* Grainy texture overlay adjustment */
+body::before {
+    content: '';
+    /* position: fixed; */ /* Changed from fixed */
+    position: absolute; /* Position relative to body/container */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; /* Ensure it covers the container */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAACXRSTlMAAAAAACLrxMY4mAVvVQAAAStJREFUSMe1l4sWwjAIRMHbDxw4MP7/X9kRQQkeu9h9d92hE8kuL/3LwDbG+03a1eQ/uN4ksyM78xXnNI98yM6P0tXN7qiPfrYDQN4W5sL3vgcDA0BPxEAwEAj+gwfHDP7/s0u7Omt0gAQAAAAAAAAAAAAAYk4+bQO49/6l/+w+d0k+tUrqNBgQFAgGBgQAQEBMECkAAAAAAACuAAACAAACAADQAACgAAACAEAAAAAQABAEAAAAACgAAAABEAAAIQBAACAEAAAAAQAAAAAAAAAABQAAAAAAQAAACAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACANu9hBgMAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbv3gBwAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/wAnCgECUwDbUAAAAABJRU5ErkJggg=='); 
+    opacity: 0.18; /* Increased grain intensity */
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 9999;
+}
+
+h1, h2 {
+    font-family: 'Lilita One', cursive;
+    /* color: #e64949; */ /* Old red */
+    color: var(--accent-red);
+    /* text-shadow: 2px 2px #fff; */ /* Old shadow */
+    text-shadow: 2px 2px var(--text-light), -2px -2px var(--text-light), 2px -2px var(--text-light), -2px 2px var(--text-light);
+
+}
+
+header {
+    /* background-color: #f5a623; */ /* Old orange */
+    background-color: var(--bwonk-orange);
+    padding: 1rem;
+    text-align: center;
+    /* border-bottom: 5px solid #e64949; */ /* Old border */
+    border-bottom: var(--border-thick) solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5rem; /* Slightly larger */
+    color: var(--text-light); /* White text for header */
+    text-shadow: 3px 3px var(--accent-red);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    /* color: #fff; */
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 1.3rem; /* Slightly larger nav links */
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px var(--border-color); /* Subtle shadow for readability */
+
+}
+
+nav a:hover {
+    /* color: #e64949; */
+    color: var(--accent-red);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly less transparent */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border: var(--border-thick) solid var(--border-color); /* Add thick border */
+    position: relative; /* Needed for potential pseudo-elements */
+}
+
+
+/* Hero section specific styles */
+#hero {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.75); /* Slightly different bg for hero? */
+}
+
+#hero-image {
+    max-width: 70%; /* Adjust as needed */
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: var(--border-thick) solid var(--border-color); /* Add border to hero image too */
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    /* background-color: #4a4a4a; */
+    background-color: var(--dark-blue-rock);
+    color: var(--text-light);
+    border-top: var(--border-thick) solid var(--border-color);
+}
+
+/* Gallery styles */
+.image-grid {
+    /* Styles for the grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Slightly increased gap */
+    margin-top: 1.5rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure images cover the grid area */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--border-color); /* Thinner border for gallery images */
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* Meme Generator styles */
+#meme-generator {
+    /* Styles for the meme generator */
+    text-align: center;
+}
+
+.meme-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+#meme-canvas {
+    border: var(--border-thick) solid var(--border-color);
+    border-radius: 5px;
+    max-width: 100%; /* Ensure canvas is responsive */
+    height: auto;
+    background-color: #fff; /* Ensure canvas bg is white if image fails */
+}
+
+.meme-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 350px; /* Limit width of controls */
+    width: 100%; /* Take full width until max-width */
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align labels to the left */
+    text-align: left;
+}
+
+.control-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    /* color: #555; */
+    color: var(--text-dark);
+}
+
+.meme-controls input[type="text"],
+.meme-controls input[type="number"],
+.meme-controls select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    background-color: var(--text-light);
+    color: var(--text-dark);
+}
+
+#download-btn {
+    padding: 0.8rem 1.5rem;
+    /* background-color: #e64949; */ /* Match header accent */
+    background-color: var(--accent-red);
+    color: var(--text-light);
+    border: var(--border-thick) solid var(--border-color);
+    border-radius: 8px; /* Slightly more rounded */
+    font-size: 1.2rem; /* Slightly larger */
+    font-family: 'Lilita One', cursive;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+    text-shadow: 1px 1px var(--border-color);
+    box-shadow: 3px 3px 0px var(--border-color);
+}
+
+#download-btn:hover {
+    /* background-color: #c43a3a; */
+    background-color: #c0392b; /* Darker red on hover */
+    transform: translate(2px, 2px); /* Button press effect */
+    box-shadow: 1px 1px 0px var(--border-color);
+}
+
+#download-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+/* Contract Address Styles */
+.contract-address-container {
+    display: inline-flex; /* Use inline-flex to keep elements on one line */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+    margin-top: 1.5rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+}
+
+#contract-address {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-right: 0.5rem;
+    /* Allow breaking on small screens */
+    word-break: break-all;
+    line-height: 1.2;
+}
+
+#copy-button {
+    background: var(--bwonk-orange);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    display: inline-flex; /* Align icon nicely */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+#copy-button:hover {
+    background-color: #e67e22; /* Darker orange */
+}
+
+#copy-button svg {
+    display: block; /* Prevent extra space below svg */
+}
+
+/* Social Links Styles */
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Space between icons */
+}
+
+.social-links a img {
+    /* width: 40px; */ /* Remove fixed width */
+    height: 40px; /* Keep fixed height */
+    width: auto; /* Allow width to adjust automatically */
+    max-width: 40px; /* Optional: Prevent extremely wide icons */
+    border-radius: 5px; /* Optional: slightly rounded corners */
+    transition: transform 0.3s ease;
+    border: 2px solid var(--border-color);
+    vertical-align: middle; /* Helps align icons if heights differ slightly */
+}
+
+.social-links a:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+} 
